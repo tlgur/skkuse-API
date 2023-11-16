@@ -1,0 +1,52 @@
+= SKklub API
+// backtony.github.io(부제)
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:docinfo: shared-head
+
+= Club API
+
+== Usage 정보 조회
+
+=== 식당
+include::adocs/usage-restaurant.adoc[]
+
+=== 카페
+include::adocs/usage-cafe.adoc[]
+
+=== 학교시설
+include::adocs/usage-school.adoc[]
+
+=== 피시방
+include::adocs/usage-pc.adoc[]
+
+=== 병원
+include::adocs/usage-medical.adoc[]
+
+=== 마트
+include::adocs/usage-mart.adoc[]
+
+== Place Cards 조회
+
+=== 식당
+include::adocs/cards-restaurant.adoc[]
+
+=== 카페
+include::adocs/cards-cafe.adoc[]
+
+=== 학교시설
+include::adocs/cards-school.adoc[]
+
+=== 피시방
+include::adocs/cards-pc.adoc[]
+
+=== 병원
+include::adocs/cards-medical.adoc[]
+
+=== 마트
+include::adocs/cards-mart.adoc[]
+
