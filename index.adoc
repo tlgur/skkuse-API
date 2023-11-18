@@ -1,4 +1,4 @@
-= 소공개 7조 API 문서
+= 소공개 7조 API 문서 
 // backtony.github.io(부제)
 :doctype: book
 :icons: font
