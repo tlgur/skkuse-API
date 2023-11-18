@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>SKklub API</title>
+<title>소공개 7조 API 문서</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -473,30 +473,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>SKklub API</h1>
+<h1>소공개 7조 API 문서</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel0">
-<li><a href="#_club_api">Club API</a>
+<li><a href="#_탄소_배출량_조회_api">탄소 배출량 조회 API</a>
 <ul class="sectlevel1">
-<li><a href="#_usage_정보_조회">Usage 정보 조회</a>
+<li><a href="#_post_green">Post - /green</a>
 <ul class="sectlevel2">
-<li><a href="#_식당">식당</a></li>
-<li><a href="#_카페">카페</a></li>
-<li><a href="#_학교시설">학교시설</a></li>
-<li><a href="#_피시방">피시방</a></li>
-<li><a href="#_병원">병원</a></li>
-<li><a href="#_마트">마트</a></li>
-</ul>
-</li>
-<li><a href="#_place_cards_조회">Place Cards 조회</a>
-<ul class="sectlevel2">
-<li><a href="#_식당_2">식당</a></li>
-<li><a href="#_카페_2">카페</a></li>
-<li><a href="#_학교시설_2">학교시설</a></li>
-<li><a href="#_피시방_2">피시방</a></li>
-<li><a href="#_병원_2">병원</a></li>
-<li><a href="#_마트_2">마트</a></li>
+<li><a href="#_정상_흐름">정상 흐름</a></li>
+<li><a href="#_예외_목록">예외 목록</a></li>
 </ul>
 </li>
 </ul>
@@ -505,267 +491,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<h1 id="_club_api" class="sect0"><a class="link" href="#_club_api">Club API</a></h1>
+<h1 id="_탄소_배출량_조회_api" class="sect0"><a class="link" href="#_탄소_배출량_조회_api">탄소 배출량 조회 API</a></h1>
 <div class="sect1">
-<h2 id="_usage_정보_조회"><a class="link" href="#_usage_정보_조회">Usage 정보 조회</a></h2>
+<h2 id="_post_green"><a class="link" href="#_post_green">Post - /green</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_식당"><a class="link" href="#_식당">식당</a></h3>
+<h3 id="_정상_흐름"><a class="link" href="#_정상_흐름">정상 흐름</a></h3>
 <div class="sect4">
-<h5 id="_get_placeusagesrestaurant"><a class="link" href="#_get_placeusagesrestaurant">GET - /place/usages/restaurant</a></h5>
+<h5 id="_모든_데이터_입력의_경우"><a class="link" href="#_모든_데이터_입력의_경우">모든 데이터 입력의 경우</a></h5>
 <div class="sect5">
-<h6 id="_get_placeusagesrestaurant_response_fields"><a class="link" href="#_get_placeusagesrestaurant_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information 분류 개수</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3 - 변동 시 항목 추가</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>foodType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : foodType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/food.html" class="popup">식당 종류</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasDeliveryService</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : BOOLEAN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasPickUpService</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : BOOLEAN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_카페"><a class="link" href="#_카페">카페</a></h3>
-<div class="sect4">
-<h5 id="_get_placeusagescafe"><a class="link" href="#_get_placeusagescafe">GET - /place/usages/cafe</a></h5>
-<div class="sect5">
-<h6 id="_get_placeusagescafe_response_fields"><a class="link" href="#_get_placeusagescafe_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information 분류 개수</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0 - 변동 시 항목 추가</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_학교시설"><a class="link" href="#_학교시설">학교시설</a></h3>
-<div class="sect4">
-<h5 id="_get_placeusagesschool"><a class="link" href="#_get_placeusagesschool">GET - /place/usages/school</a></h5>
-<div class="sect5">
-<h6 id="_get_placeusagesschool_response_fields"><a class="link" href="#_get_placeusagesschool_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information 분류 개수</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4 - 변동 시 항목 추가</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>talkable</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : talkables</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/talkable.html" class="popup">대화 여부 종류</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eatable</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : eatables</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/eatable.html" class="popup">취식 여부 종류</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>typeable</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : typeables</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/typeable.html" class="popup">타이핑 여부 종류</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasConsent</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : BOOLEAN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_피시방"><a class="link" href="#_피시방">피시방</a></h3>
-<div class="sect4">
-<h5 id="_get_placeusagespc"><a class="link" href="#_get_placeusagespc">GET - /place/usages/pc</a></h5>
-<div class="sect5">
-<h6 id="_get_placeusagespc_response_fields"><a class="link" href="#_get_placeusagespc_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information 분류 개수</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0 - 변동 시 항목 추가</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_병원"><a class="link" href="#_병원">병원</a></h3>
-<div class="sect4">
-<h5 id="_get_placeusagesmedical"><a class="link" href="#_get_placeusagesmedical">GET - /place/usages/medical</a></h5>
-<div class="sect5">
-<h6 id="_get_placeusagesmedical_response_fields"><a class="link" href="#_get_placeusagesmedical_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information 분류 개수</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1 - 변동 시 항목 추가</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>medicalType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information : MedicalType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/medical-place.html" class="popup">병원 종류</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_마트"><a class="link" href="#_마트">마트</a></h3>
-<div class="sect4">
-<h5 id="_get_placeusagesmart"><a class="link" href="#_get_placeusagesmart">GET - /place/usages/mart</a></h5>
-<div class="sect5">
-<h6 id="_get_placeusagesmart_response_fields"><a class="link" href="#_get_placeusagesmart_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>count</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">usage Information 분류 개수</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0 - 변동 시 항목 추가</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_place_cards_조회"><a class="link" href="#_place_cards_조회">Place Cards 조회</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_식당_2"><a class="link" href="#_식당_2">식당</a></h3>
-<div class="sect4">
-<h5 id="_get_placecardsrestaurant"><a class="link" href="#_get_placecardsrestaurant">GET - /place/cards/restaurant</a></h5>
-<div class="sect5">
-<h6 id="_get_placecardsrestaurant_query_parameters"><a class="link" href="#_get_placecardsrestaurant_query_parameters">Query parameters</a></h6>
+<h6 id="_모든_데이터_입력의_경우_request_fields"><a class="link" href="#_모든_데이터_입력의_경우_request_fields">Request fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -783,52 +518,89 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus.html" class="popup">캠퍼스 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javaCode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">실행할 자바 코드</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">public class Main {
+    public static void main(String[] args) {
+        int i = 1;
+        float f = 1.1f;
+        double d = 1.2;
+        boolean b = true;
+        char c = 'a';
+        System. out.println(i);
+        System. out.println(f);
+        System. out.println(d);
+        System. out.println(b);
+        System. out.println(c);
+    }
+}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>foodType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 식당 종류</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/food.html" class="popup">식당 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasPickUpService</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 포장 가능 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasDeliveryService</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 배달 가능 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.modelName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor(CPU or GPU) model 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel Core i7-14700K</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.usageFactor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개 가용률(기본값 1, 최소값 0, 최대값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/place-keyword.html" class="popup">장소 정렬 키워드</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.coreNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활용 가능한 코어 개수(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.tdp</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.modelName</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.usageFactor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개 가용률(기본값 1, 최소값 0, 최대값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.coreNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활용 가능한 코어 개수(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.tdp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개의 설계 전력(최소값 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.memoryGigaByte</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용 가능 메모리 양(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.psf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">프라그마 스케일링 팩터(기본값 1, 최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_get_placecardsrestaurant_response_fields"><a class="link" href="#_get_placecardsrestaurant_response_fields">Response fields</a></h6>
+<h6 id="_모든_데이터_입력의_경우_response_fields"><a class="link" href="#_모든_데이터_입력의_경우_response_fields">Response fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -846,76 +618,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasNext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">인피니티 스크롤 - 다음 페이지 존재 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">총 탄소 배출량(세부 탄소 배출량 총합)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">126.78</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.cpuCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - Cpu(입력시)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32.01</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].placeID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.gpuCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 아이디</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - Gpu(입력시)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42.51</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testPlaceCard0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.memoryCarbonFootprint</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - memory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52.26</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].openAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">오픈시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.energyNeeded</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 에너지</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11.111</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].closeAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">마감시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.treeMonths</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 나무</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22.222</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].loadNameAddress</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">도로명 주소</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testAddress0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.passengerCar</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 자동차</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33.333</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgSavedName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 저장명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testsavedImage0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgOriginalName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 원본명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testImage0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.flightFromIncheonToLondon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 비행</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44.44</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_카페_2"><a class="link" href="#_카페_2">카페</a></h3>
 <div class="sect4">
-<h5 id="_get_placecardscafe"><a class="link" href="#_get_placecardscafe">GET - /place/cards/cafe</a></h5>
+<h5 id="_post_green_2"><a class="link" href="#_post_green_2">Post - /green</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_모델_이름만_입력_시no_tdp"><a class="link" href="#_모델_이름만_입력_시no_tdp">모델 이름만 입력 시(no tdp)</a></h5>
 <div class="sect5">
-<h6 id="_get_placecardscafe_query_parameters"><a class="link" href="#_get_placecardscafe_query_parameters">Query parameters</a></h6>
+<h6 id="_모델_이름만_입력_시no_tdp_request_fields"><a class="link" href="#_모델_이름만_입력_시no_tdp_request_fields">Request fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -933,34 +694,89 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus.html" class="popup">캠퍼스 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javaCode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">실행할 자바 코드</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">public class Main {
+    public static void main(String[] args) {
+        int i = 1;
+        float f = 1.1f;
+        double d = 1.2;
+        boolean b = true;
+        char c = 'a';
+        System. out.println(i);
+        System. out.println(f);
+        System. out.println(d);
+        System. out.println(b);
+        System. out.println(c);
+    }
+}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.modelName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor(CPU or GPU) model 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel Core i7-14700K</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.usageFactor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개 가용률(기본값 1, 최소값 0, 최대값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/place-keyword.html" class="popup">장소 정렬 키워드</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.coreNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활용 가능한 코어 개수(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.tdp</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.modelName</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.usageFactor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개 가용률(기본값 1, 최소값 0, 최대값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.coreNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활용 가능한 코어 개수(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.tdp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개의 설계 전력(최소값 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.memoryGigaByte</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용 가능 메모리 양(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.psf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">프라그마 스케일링 팩터(기본값 1, 최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_get_placecardscafe_response_fields"><a class="link" href="#_get_placecardscafe_response_fields">Response fields</a></h6>
+<h6 id="_모델_이름만_입력_시no_tdp_response_fields"><a class="link" href="#_모델_이름만_입력_시no_tdp_response_fields">Response fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -978,76 +794,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasNext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">인피니티 스크롤 - 다음 페이지 존재 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">총 탄소 배출량(세부 탄소 배출량 총합)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">126.78</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.cpuCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - Cpu(입력시)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32.01</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].placeID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.gpuCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 아이디</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - Gpu(입력시)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42.51</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testPlaceCard0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.memoryCarbonFootprint</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - memory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52.26</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].openAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">오픈시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.energyNeeded</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 에너지</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11.111</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].closeAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">마감시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.treeMonths</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 나무</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22.222</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].loadNameAddress</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">도로명 주소</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testAddress0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.passengerCar</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 자동차</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33.333</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgSavedName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 저장명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testsavedImage0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgOriginalName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 원본명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testImage0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.flightFromIncheonToLondon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 비행</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44.44</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_학교시설_2"><a class="link" href="#_학교시설_2">학교시설</a></h3>
 <div class="sect4">
-<h5 id="_get_placecardsschool"><a class="link" href="#_get_placecardsschool">GET - /place/cards/school</a></h5>
+<h5 id="_post_green_3"><a class="link" href="#_post_green_3">Post - /green</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_tdp값만_입력_시no_model_name"><a class="link" href="#_tdp값만_입력_시no_model_name">tdp값만 입력 시(no model name)</a></h5>
 <div class="sect5">
-<h6 id="_get_placecardsschool_query_parameters"><a class="link" href="#_get_placecardsschool_query_parameters">Query parameters</a></h6>
+<h6 id="_tdp값만_입력_시no_model_name_request_fields"><a class="link" href="#_tdp값만_입력_시no_model_name_request_fields">Request fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1065,52 +870,89 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 대 분류</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus.html" class="popup">캠퍼스 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javaCode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">실행할 자바 코드</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">public class Main {
+    public static void main(String[] args) {
+        int i = 1;
+        float f = 1.1f;
+        double d = 1.2;
+        boolean b = true;
+        char c = 'a';
+        System. out.println(i);
+        System. out.println(f);
+        System. out.println(d);
+        System. out.println(b);
+        System. out.println(c);
+    }
+}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>talkable</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대화 가능 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/talkable.html" class="popup">대화 여부 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.modelName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor(CPU or GPU) model 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel Core i7-14700K</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eatable</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">취식 가능 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/eatable.html" class="popup">취식 여부 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.usageFactor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개 가용률(기본값 1, 최소값 0, 최대값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>typeable</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">타이핑 가능 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/typeable.html" class="popup">타이핑 여부 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.coreNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활용 가능한 코어 개수(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.cpuSpecRequest.tdp</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasConsent</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">콘센트 보유 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.modelName</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paging - page 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.usageFactor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개 가용률(기본값 1, 최소값 0, 최대값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paging - 한 page 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.coreNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활용 가능한 코어 개수(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.gpuSpecRequest.tdp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processor 코어 한개의 설계 전력(최소값 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.memoryGigaByte</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용 가능 메모리 양(최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwSpecRequest.psf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">프라그마 스케일링 팩터(기본값 1, 최소값 1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_get_placecardsschool_response_fields"><a class="link" href="#_get_placecardsschool_response_fields">Response fields</a></h6>
+<h6 id="_tdp값만_입력_시no_model_name_response_fields"><a class="link" href="#_tdp값만_입력_시no_model_name_response_fields">Response fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1128,64 +970,52 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasNext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">뒤에 남아 있는지</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/boolean.html" class="popup">boolean 값 종류</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paging - 한 page 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">총 탄소 배출량(세부 탄소 배출량 총합)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">126.78</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.cpuCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">paging - page 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - Cpu(입력시)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32.01</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].placeID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.gpuCarbonFootprint</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">place ID(식별자)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - Gpu(입력시)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42.51</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">place 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">샘플 장소명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hwFootprint.memoryCarbonFootprint</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 - memory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52.26</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].openAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">운영 시작 시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">00:00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.energyNeeded</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 에너지</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11.111</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].closeAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">운영 마감 시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">23:59</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.treeMonths</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 나무</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22.222</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].loadNameAddress</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">도로명 주소</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">수원시 ㅇㅇ로 12번길 ㅇㅇ동</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.passengerCar</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 자동차</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33.333</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgSavedName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 사진 저장된 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">original.png</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgOriginalName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 사진 원본 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">saved.png</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>convertedFootprint.flightFromIncheonToLondon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">탄소 배출량 변환 - 비행</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44.44</p></td>
 </tr>
 </tbody>
 </table>
@@ -1193,413 +1023,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_피시방_2"><a class="link" href="#_피시방_2">피시방</a></h3>
-<div class="sect4">
-<h5 id="_get_placecardspc"><a class="link" href="#_get_placecardspc">GET - /place/cards/pc</a></h5>
-<div class="sect5">
-<h6 id="_get_placecardspc_query_parameters"><a class="link" href="#_get_placecardspc_query_parameters">Query parameters</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">필수여부</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus.html" class="popup">캠퍼스 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/place-keyword.html" class="popup">장소 정렬 키워드</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_get_placecardspc_response_fields"><a class="link" href="#_get_placecardspc_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasNext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">인피니티 스크롤 - 다음 페이지 존재 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].placeID</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 아이디</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testPlaceCard0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].openAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">오픈시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].closeAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">마감시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].loadNameAddress</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">도로명 주소</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testAddress0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgSavedName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 저장명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testsavedImage0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgOriginalName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 원본명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testImage0</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_병원_2"><a class="link" href="#_병원_2">병원</a></h3>
-<div class="sect4">
-<h5 id="_get_placecardsmedical"><a class="link" href="#_get_placecardsmedical">GET - /place/cards/medical</a></h5>
-<div class="sect5">
-<h6 id="_get_placecardsmedical_query_parameters"><a class="link" href="#_get_placecardsmedical_query_parameters">Query parameters</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">필수여부</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus.html" class="popup">캠퍼스 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>medicalType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 병원 종류</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/medical-place.html" class="popup">병원 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/place-keyword.html" class="popup">장소 정렬 키워드</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_get_placecardsmedical_response_fields"><a class="link" href="#_get_placecardsmedical_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasNext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">인피니티 스크롤 - 다음 페이지 존재 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].placeID</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 아이디</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testPlaceCard0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].openAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">오픈시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].closeAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">마감시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].loadNameAddress</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">도로명 주소</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testAddress0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgSavedName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 저장명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testsavedImage0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgOriginalName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 원본명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testImage0</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_마트_2"><a class="link" href="#_마트_2">마트</a></h3>
-<div class="sect4">
-<h5 id="_get_placecardsmart"><a class="link" href="#_get_placecardsmart">GET - /place/cards/mart</a></h5>
-<div class="sect5">
-<h6 id="_get_placecardsmart_query_parameters"><a class="link" href="#_get_placecardsmart_query_parameters">Query parameters</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">필수여부</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus.html" class="popup">캠퍼스 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/place-keyword.html" class="popup">장소 정렬 키워드</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_get_placecardsmart_response_fields"><a class="link" href="#_get_placecardsmart_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasNext</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">인피니티 스크롤 - 다음 페이지 존재 여부</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지 번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].placeID</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 아이디</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">장소 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testPlaceCard0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].openAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">오픈시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].closeAt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">마감시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">07:34</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].loadNameAddress</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">도로명 주소</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testAddress0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgSavedName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 저장명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testsavedImage0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].imgOriginalName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대표 이미지 - 원본명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">testImage0</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<h3 id="_예외_목록"><a class="link" href="#_예외_목록">예외 목록</a></h3>
+
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-17 07:25:16 +0900
+Last updated 2023-11-18 20:46:17 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
