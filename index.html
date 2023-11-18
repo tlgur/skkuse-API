@@ -479,10 +479,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel0">
 <li><a href="#_탄소_배출량_조회_api">탄소 배출량 조회 API</a>
 <ul class="sectlevel1">
-<li><a href="#_post_green">Post - /green</a>
+<li><a href="#_post_green">Post - /green</a></li>
+<li><a href="#_정상_흐름">정상 흐름</a>
+<ul class="sectlevel4">
+<li><a href="#_모든_데이터_입력의_경우">모든 데이터 입력의 경우</a></li>
+<li><a href="#_모델_이름만_입력_시no_tdp">모델 이름만 입력 시(no tdp)</a></li>
+<li><a href="#_tdp값만_입력_시no_model_name">tdp값만 입력 시(no model name)</a></li>
+</ul>
+</li>
+<li><a href="#_예외_목록">예외 목록</a>
 <ul class="sectlevel2">
-<li><a href="#_정상_흐름">정상 흐름</a></li>
-<li><a href="#_예외_목록">예외 목록</a></li>
+<li><a href="#_bindexception">BindException</a></li>
+<li><a href="#_bindexception_2">BindException</a></li>
+<li><a href="#_withoutprocessorexception">WithoutProcessorException</a></li>
+<li><a href="#_cputdpwithmodelnameexception">CpuTdpWithModelNameException</a></li>
+<li><a href="#_gputdpwithmodelnameexception">GpuTdpWithModelNameException</a></li>
+<li><a href="#_nomatchcpumodelnameexception">NoMatchCpuModelNameException</a></li>
+<li><a href="#_nomatchgpumodelnameexception">NoMatchGpuModelNameException</a></li>
+<li><a href="#_cannotinfertdpexception">CannotInferTdpException</a></li>
 </ul>
 </li>
 </ul>
@@ -495,8 +509,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_post_green"><a class="link" href="#_post_green">Post - /green</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_정상_흐름"><a class="link" href="#_정상_흐름">정상 흐름</a></h3>
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_정상_흐름"><a class="link" href="#_정상_흐름">정상 흐름</a></h2>
+<div class="sectionbody">
 <div class="sect4">
 <h5 id="_모든_데이터_입력의_경우"><a class="link" href="#_모든_데이터_입력의_경우">모든 데이터 입력의 경우</a></h5>
 <div class="sect5">
@@ -713,10 +731,6 @@ Content-Length: 252
 </div>
 </div>
 <div class="sect4">
-<h5 id="_post_green_2"><a class="link" href="#_post_green_2">Post - /green</a></h5>
-
-</div>
-<div class="sect4">
 <h5 id="_모델_이름만_입력_시no_tdp"><a class="link" href="#_모델_이름만_입력_시no_tdp">모델 이름만 입력 시(no tdp)</a></h5>
 <div class="sect5">
 <h6 id="_모델_이름만_입력_시no_tdp_http_request"><a class="link" href="#_모델_이름만_입력_시no_tdp_http_request">HTTP request</a></h6>
@@ -907,10 +921,6 @@ Content-Length: 251
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_post_green_3"><a class="link" href="#_post_green_3">Post - /green</a></h5>
-
 </div>
 <div class="sect4">
 <h5 id="_tdp값만_입력_시no_model_name"><a class="link" href="#_tdp값만_입력_시no_model_name">tdp값만 입력 시(no model name)</a></h5>
@@ -1105,12 +1115,16 @@ Content-Length: 251
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_예외_목록"><a class="link" href="#_예외_목록">예외 목록</a></h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_예외_목록"><a class="link" href="#_예외_목록">예외 목록</a></h3>
+<h3 id="_bindexception"><a class="link" href="#_bindexception">BindException</a></h3>
 <div class="sect4">
-<h5 id="_필수값_누락_bindexception"><a class="link" href="#_필수값_누락_bindexception">필수값 누락 BindException</a></h5>
+<h5 id="_필수값_누락"><a class="link" href="#_필수값_누락">필수값 누락</a></h5>
 <div class="sect5">
-<h6 id="_필수값_누락_bindexception_http_request"><a class="link" href="#_필수값_누락_bindexception_http_request">HTTP request</a></h6>
+<h6 id="_필수값_누락_http_request"><a class="link" href="#_필수값_누락_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1136,10 +1150,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_bindexception_2"><a class="link" href="#_bindexception_2">BindException</a></h3>
 <div class="sect4">
-<h5 id="_범위_이탈_bindexception"><a class="link" href="#_범위_이탈_bindexception">범위 이탈 BindException</a></h5>
+<h5 id="_범위_이탈"><a class="link" href="#_범위_이탈">범위 이탈</a></h5>
 <div class="sect5">
-<h6 id="_범위_이탈_bindexception_http_request"><a class="link" href="#_범위_이탈_bindexception_http_request">HTTP request</a></h6>
+<h6 id="_범위_이탈_http_request"><a class="link" href="#_범위_이탈_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1170,10 +1187,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_withoutprocessorexception"><a class="link" href="#_withoutprocessorexception">WithoutProcessorException</a></h3>
 <div class="sect4">
-<h5 id="_cpu_gpu_모두_누락_withoutprocessorexception"><a class="link" href="#_cpu_gpu_모두_누락_withoutprocessorexception">Cpu, Gpu 모두 누락 WithoutProcessorException</a></h5>
+<h5 id="_cpu_gpu_모두_누락"><a class="link" href="#_cpu_gpu_모두_누락">Cpu, Gpu 모두 누락</a></h5>
 <div class="sect5">
-<h6 id="_cpu_gpu_모두_누락_withoutprocessorexception_http_request"><a class="link" href="#_cpu_gpu_모두_누락_withoutprocessorexception_http_request">HTTP request</a></h6>
+<h6 id="_cpu_gpu_모두_누락_http_request"><a class="link" href="#_cpu_gpu_모두_누락_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1194,10 +1214,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_cputdpwithmodelnameexception"><a class="link" href="#_cputdpwithmodelnameexception">CpuTdpWithModelNameException</a></h3>
 <div class="sect4">
-<h5 id="_cpu_모델명과_tdp값이_같이_옴_cputdpwithmodelnameexception"><a class="link" href="#_cpu_모델명과_tdp값이_같이_옴_cputdpwithmodelnameexception">Cpu 모델명과 Tdp값이 같이 옴 CpuTdpWithModelNameException</a></h5>
+<h5 id="_cpu_모델명과_tdp값이_같이_옴"><a class="link" href="#_cpu_모델명과_tdp값이_같이_옴">Cpu 모델명과 Tdp값이 같이 옴</a></h5>
 <div class="sect5">
-<h6 id="_cpu_모델명과_tdp값이_같이_옴_cputdpwithmodelnameexception_http_request"><a class="link" href="#_cpu_모델명과_tdp값이_같이_옴_cputdpwithmodelnameexception_http_request">HTTP request</a></h6>
+<h6 id="_cpu_모델명과_tdp값이_같이_옴_http_request"><a class="link" href="#_cpu_모델명과_tdp값이_같이_옴_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1228,10 +1251,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_gputdpwithmodelnameexception"><a class="link" href="#_gputdpwithmodelnameexception">GpuTdpWithModelNameException</a></h3>
 <div class="sect4">
-<h5 id="_gpu_모델명과_tdp값이_같이_옴_gputdpwithmodelnameexception"><a class="link" href="#_gpu_모델명과_tdp값이_같이_옴_gputdpwithmodelnameexception">Gpu 모델명과 Tdp값이 같이 옴 GpuTdpWithModelNameException</a></h5>
+<h5 id="_gpu_모델명과_tdp값이_같이_옴"><a class="link" href="#_gpu_모델명과_tdp값이_같이_옴">Gpu 모델명과 Tdp값이 같이 옴</a></h5>
 <div class="sect5">
-<h6 id="_gpu_모델명과_tdp값이_같이_옴_gputdpwithmodelnameexception_http_request"><a class="link" href="#_gpu_모델명과_tdp값이_같이_옴_gputdpwithmodelnameexception_http_request">HTTP request</a></h6>
+<h6 id="_gpu_모델명과_tdp값이_같이_옴_http_request"><a class="link" href="#_gpu_모델명과_tdp값이_같이_옴_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1262,10 +1288,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_nomatchcpumodelnameexception"><a class="link" href="#_nomatchcpumodelnameexception">NoMatchCpuModelNameException</a></h3>
 <div class="sect4">
-<h5 id="_목록에_없는_cpu_모델명_nomatchcpumodelnameexception"><a class="link" href="#_목록에_없는_cpu_모델명_nomatchcpumodelnameexception">목록에 없는 Cpu 모델명 NoMatchCpuModelNameException</a></h5>
+<h5 id="_목록에_없는_cpu_모델명"><a class="link" href="#_목록에_없는_cpu_모델명">목록에 없는 Cpu 모델명</a></h5>
 <div class="sect5">
-<h6 id="_목록에_없는_cpu_모델명_nomatchcpumodelnameexception_http_request"><a class="link" href="#_목록에_없는_cpu_모델명_nomatchcpumodelnameexception_http_request">HTTP request</a></h6>
+<h6 id="_목록에_없는_cpu_모델명_http_request"><a class="link" href="#_목록에_없는_cpu_모델명_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1291,10 +1320,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_nomatchgpumodelnameexception"><a class="link" href="#_nomatchgpumodelnameexception">NoMatchGpuModelNameException</a></h3>
 <div class="sect4">
-<h5 id="_목록에_없는_gpu_모델명_nomatchgpumodelnameexception"><a class="link" href="#_목록에_없는_gpu_모델명_nomatchgpumodelnameexception">목록에 없는 Gpu 모델명 NoMatchGpuModelNameException</a></h5>
+<h5 id="_목록에_없는_gpu_모델명"><a class="link" href="#_목록에_없는_gpu_모델명">목록에 없는 Gpu 모델명</a></h5>
 <div class="sect5">
-<h6 id="_목록에_없는_gpu_모델명_nomatchgpumodelnameexception_http_request"><a class="link" href="#_목록에_없는_gpu_모델명_nomatchgpumodelnameexception_http_request">HTTP request</a></h6>
+<h6 id="_목록에_없는_gpu_모델명_http_request"><a class="link" href="#_목록에_없는_gpu_모델명_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1320,10 +1352,13 @@ Host: localhost:8080
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_cannotinfertdpexception"><a class="link" href="#_cannotinfertdpexception">CannotInferTdpException</a></h3>
 <div class="sect4">
-<h5 id="_cpugpu의_모델명과_tdp_모두_누락_cannotinfertdpexception"><a class="link" href="#_cpugpu의_모델명과_tdp_모두_누락_cannotinfertdpexception">Cpu/Gpu의 모델명과 tdp 모두 누락 CannotInferTdpException</a></h5>
+<h5 id="_cpugpu의_모델명과_tdp_모두_누락"><a class="link" href="#_cpugpu의_모델명과_tdp_모두_누락">Cpu/Gpu의 모델명과 tdp 모두 누락</a></h5>
 <div class="sect5">
-<h6 id="_cpugpu의_모델명과_tdp_모두_누락_cannotinfertdpexception_http_request"><a class="link" href="#_cpugpu의_모델명과_tdp_모두_누락_cannotinfertdpexception_http_request">HTTP request</a></h6>
+<h6 id="_cpugpu의_모델명과_tdp_모두_누락_http_request"><a class="link" href="#_cpugpu의_모델명과_tdp_모두_누락_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /green HTTP/1.1
@@ -1355,7 +1390,7 @@ Host: localhost:8080
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-18 21:33:41 +0900
+Last updated 2023-11-18 21:37:48 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
